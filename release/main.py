@@ -9,7 +9,7 @@ class MyWidget(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.db = 'release/data/coffee.db'
+        self.db = 'data/coffee.db'
         self.loadUi()
         self.btn.clicked.connect(self.change_table)
 
