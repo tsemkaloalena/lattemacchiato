@@ -10,7 +10,6 @@ class MyWidget(QWidget, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.db = 'data/coffee.db'
-        self.loadUi()
         self.btn.clicked.connect(self.change_table)
 
     def loadUi(self):
@@ -31,10 +30,12 @@ class MyWidget(QWidget, Ui_Form):
 
         self.tableWidget.resizeColumnsToContents()
 
+    def enterEvent(self, QEvent):
+        self.loadUi()
+
     def change_table(self):
         self.change_form = addEditCoffeeForm(self, self.db)
         self.change_form.show()
-        # self.loadUi()
 
 
 class addEditCoffeeForm(QWidget, The_Other_Ui_Form):
